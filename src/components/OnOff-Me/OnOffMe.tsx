@@ -21,7 +21,7 @@ function Switch(props: SwitchType) {
   )
 }
 
-export function OnOff(props: OnOffType) {
+export function OnOffMe(props: OnOffType) {
   return (
     <div>
       {props.isActive && <Switch state={on}/>}
