@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOffMe} from "./components/OnOff-Me/OnOffMe";
 import {OnOffDimych} from "./components/OnOffDimych/OnOffDimych";
 import {UnControlledAccordion} from "./components/UnControlledAccordion/UnControlledAccordion";
@@ -9,29 +9,39 @@ import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRa
 
 
 function App() {
+
+  const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+  const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>
+  (false)
+  const [run, setRun] = useState<boolean>(false)
+
   return (
     <div className="App">
       <PageTitle title={"This is App component"}/>
       Article 1
-      <Rating value={3}/>
-      <Accordion titleValue={"Main menu"} collapsed={true}/>
-      <Accordion titleValue={"Users"} collapsed={false}/>
+      {/*<Rating value={3}/>*/}
+      <Accordion titleValue={"Main menu"} collapsed={accordionCollapsed} onChange={() => setAccordionCollapsed(!accordionCollapsed)}/>
+      <Accordion titleValue={"Users"} collapsed={accordionCollapsed} onChange={() => setAccordionCollapsed(!accordionCollapsed)}/>
       Article 2
-      <Rating value={0}/>
-      <Rating value={1}/>
-      <Rating value={2}/>
-      <Rating value={3}/>
-      <Rating value={4}/>
-      <Rating value={5}/>
+      <br/>
+      {/*<Rating value={0}/>*/}
+      {/*<Rating value={1}/>*/}
+      {/*<Rating value={2}/>*/}
+      {/*<Rating value={3}/>*/}
+      {/*<Rating value={4}/>*/}
+      {/*<Rating value={5}/>*/}
       HomeWork 2
       {/*<OnOffMe isActive={true}/>*/}
       {/*<OnOffMe isActive={false}/>*/}
-      <OnOffDimych/>
-      <OnOffDimych/>
+      <OnOffDimych run={run} onClick={setRun}/>
+      <OnOffDimych run={run} onClick={setRun}/>
       HomeWork 3
-      <UnControlledAccordion titleValue={"Main menu"}/>
-      <UnControlledAccordion titleValue={"Users"}/>
+      <UnControlledAccordion titleValue={"Main menu"} onClick={() => {}}/>
+      <UnControlledAccordion titleValue={"Users"} onClick={() => {}}/>
       <UncontrolledRating/>
+      HomeWork 4
+      <Rating value={ratingValue}
+              onClick={setRatingValue}/>
     </div>
   );
 }

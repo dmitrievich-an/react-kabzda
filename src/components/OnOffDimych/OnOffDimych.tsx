@@ -1,8 +1,13 @@
 import React, {useState} from 'react';
 
-export const OnOffDimych = () => {
+type OnOffDimychPropsType = {
+  run: boolean
+  onClick: (value: boolean) => void
+}
 
-  const [on, setOn] = useState(false)
+export const OnOffDimych = (props: OnOffDimychPropsType) => {
+
+  // const [on, setOn] = useState(false)
 
   const onStyle = {
     width: "30px",
@@ -10,7 +15,7 @@ export const OnOffDimych = () => {
     border: "1px solid black",
     display: "inline-block",
     padding: "2px",
-    backgroundColor: on ? "green" : "white",
+    backgroundColor: props.run ? "green" : "white",
     cursor: "pointer",
 
   };
@@ -21,7 +26,7 @@ export const OnOffDimych = () => {
     display: "inline-block",
     marginLeft: "5px",
     padding: "2px",
-    backgroundColor: !on ? "red" : "white",
+    backgroundColor: !props.run ? "red" : "white",
     cursor: "pointer",
 
   };
@@ -32,14 +37,17 @@ export const OnOffDimych = () => {
     border: "1px solid black",
     display: "inline-block",
     marginLeft: "5px",
-    backgroundColor: on ? "green" : "red",
+    backgroundColor: props.run ? "green" : "red",
 
   };
 
+  const onClicked = () => props.onClick(true);
+  const offClicked = () => props.onClick(false);
+
   return (
     <div>
-      <div style={onStyle} onClick={() => setOn(true)}>On</div>
-      <div style={offStyle} onClick={() => setOn(false)}>Off</div>
+      <div style={onStyle} onClick={onClicked}>On</div>
+      <div style={offStyle} onClick={offClicked}>Off</div>
       <div style={indicatorStyle}></div>
     </div>
   );

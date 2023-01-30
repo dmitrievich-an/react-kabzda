@@ -3,14 +3,16 @@ import React, {useState} from "react";
 const h3Style = {
   display: "inline-block",
   marginRight: "5px",
+  cursor: "pointer"
 }
 
 type UnControlledAccordionPropsType = {
   titleValue: string
+  onClick: () => void
 }
 
 function AccordionTitle(props: UnControlledAccordionPropsType) {
-  return <h3 style={h3Style}>-- {props.titleValue} --</h3>
+  return <h3 style={h3Style} onClick={props.onClick}>-- {props.titleValue} --</h3>
 }
 
 function AccordionBody() {
@@ -33,7 +35,7 @@ export function UnControlledAccordion(props: UnControlledAccordionPropsType) {
 
   return (
     <div>
-      <AccordionTitle titleValue={props.titleValue}/><button onClick={curtailList}>+</button>
+      <AccordionTitle titleValue={props.titleValue} onClick={curtailList}/>
       {!collapsed && <AccordionBody/>}
     </div>
   )

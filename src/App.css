@@ -1,6 +1,4 @@
 .App {
-  outline: 3px solid rgba(0, 255, 0, 0.7);
-  outline-offset: -3px;
   padding: 10px;
   min-width: 400px;
   max-width: 500px;
