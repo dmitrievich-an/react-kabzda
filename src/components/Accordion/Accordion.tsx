@@ -5,28 +5,24 @@ type AccordionPropsType = {
     collapsed: boolean,
 }
 
-export const Accordion = ({title, collapsed}: AccordionPropsType) => {
-    return (
-        <>
-            <AccordionTitle title={title}/>
-            <AccordionBody collapsed={collapsed}/>
-        </>
-    );
+export const Accordion = ({ title, collapsed }: AccordionPropsType) => {
+
+        return (
+            <>
+                <AccordionTitle title={ title } />
+                { !collapsed && <AccordionBody /> }
+            </>
+        );
 };
 
 type AccordionTitlePropsType = {
     title: string,
 }
 
-const AccordionTitle = ({title}: AccordionTitlePropsType) => <h3>-- { title } --</h3>
+const AccordionTitle = ({ title }: AccordionTitlePropsType) => <h3>-- { title } --</h3>
 
-type AccordionBodyPropsType = {
-    collapsed: boolean,
-}
 
-const AccordionBody = ({collapsed}: AccordionBodyPropsType) => {
-
-    if (!collapsed) {
+const AccordionBody = () => {
         return (
             <ul>
                 <li>1</li>
@@ -34,11 +30,4 @@ const AccordionBody = ({collapsed}: AccordionBodyPropsType) => {
                 <li>3</li>
             </ul>
         );
-    } else {
-        return (
-            <ul></ul>
-        )
-    }
-
-
 };
