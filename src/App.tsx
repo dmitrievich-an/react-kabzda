@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { Rating } from "./components/Rating/Rating";
 import { Accordion } from "./components/Accordion/Accordion";
-import { Switch } from './components/Switch/Switch';
+import { OnOff } from './components/Switch/OnOff';
 
 function App() {
     return (
@@ -17,8 +17,8 @@ function App() {
             <PageTitle title={ "This is MenuComponent" } />
             <Accordion title={ "Menu" } collapsed={ false } />
             <Accordion title={ "Users" } collapsed={ true } />
-            <Switch included={true}/>
-            <Switch included={false}/>
+            <OnOff included={true}/>
+            <OnOff included={false}/>
         </div>
     );
 }

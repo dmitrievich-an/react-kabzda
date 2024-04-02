@@ -1,11 +1,11 @@
 import React from 'react';
-import './Switch.css'
+import './OnOff.css'
 
 type SwitchType = {
     included: boolean
 }
 
-export const Switch = ({included}: SwitchType) => {
+export const OnOff = ({included}: SwitchType) => {
     return (
         <div className="switch-wrapper">
             { included ? <SwitchOn/> : <SwitchOff/> }
